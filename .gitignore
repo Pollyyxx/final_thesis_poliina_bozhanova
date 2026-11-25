@@ -1,0 +1,20 @@
+# Python environment
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Raw and processed data files
+data/*.csv
+data/*.parquet
+data/*.xlsx
+
+# Model outputs and temporary files
+*.pkl
+*.joblib

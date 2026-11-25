@@ -66,10 +66,6 @@
 - On matched out of sample XGBoost predictions, zero cost cumulative return moved from 13.05% to 14.00% for QQQ and from 9.08% to 10.71% for SPY. At 1 bp per side, both remained negative (-40.03% to -37.26% for QQQ; -42.63% to -39.18% for SPY). This exploratory change does not remove the strategy's high cost sensitivity.
 - Saved fold metrics, predictions, metric deltas, and matched cost sensitivity backtests in `results/indicator_ablation_*.csv`; added `notebooks/06_indicator_ablation.ipynb` to review them.
 
-### 8. Remaining work (historical)
-These tasks were written before the target and execution timing were corrected. The model/strategy review and fold level robustness review are now recorded in the 6 November entries below.
-
-
 ## Execution timing and time series benchmark review
 
 - Replaced the earlier close to close target with the next five minute bar's open to close return. Predictors are available at the current bar close; the simulated position enters at the next bar open and exits at that bar's close. Saved signal, entry and exit timestamps and added checks that the timestamps and return prices agree.
@@ -79,10 +75,6 @@ These tasks were written before the target and execution timing were corrected. 
 - Re ran the long or cash backtest. XGBoost zero cost cumulative return was 37.18% for QQQ and 27.70% for SPY; at the illustrative 1 bp per side case it was -52.05% and -56.39%. These are sensitivity results under a bar level execution assumption, not verified broker costs or live trading evidence.
 - The earlier close to close model, indicator ablation and backtest outputs are superseded by the 6 November open to close reruns; their values should not be presented as current results.
 
-### Review notes
-
-The existing folds were reviewed during model development and are not an untouched holdout. The cost values remain illustrative, and data files are excluded from Git pending a licence check.
-
 ## Fold by fold robustness review
 
 - Added `python_code/run_robustness_checks.py` to assign each saved prediction to its chronological test fold, verify each prediction is assigned once, and confirm assigned row counts match the saved fold sizes.
@@ -90,7 +82,7 @@ The existing folds were reviewed during model development and are not an untouch
 - Saved fold predictive metrics, fold backtest summaries, daily fold returns, and return range summaries under `results/robustness_*.csv`. Added `notebooks/07_robustness_checks.ipynb` for reviewing those tables and plotting XGBoost fold returns.
 - All 46,951 predictions mapped to one fold, and row counts matched the saved fold definitions. XGBoost was positive in all five zero cost folds for QQQ (range +5.74% to +7.57%) and SPY (range +0.58% to +9.07%). At the illustrative 1 bp per side scenario, no XGBoost fold was positive; mean fold returns were -13.67% for QQQ and -15.25% for SPY. Costs are scenario assumptions, and these reused folds are not an independent final test.
 - The fold by fold method pays to close a position at each fold boundary, so these fold level returns are intentionally not directly compounded to reproduce the continuous period backtest summary.
-
+- 
 
 ## Notes audit: current scope and next analysis
 

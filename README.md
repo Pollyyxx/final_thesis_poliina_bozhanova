@@ -1,1 +1,1 @@
-# final_thesis_poliina_bozhanova
+# equity_forecasting

@@ -10,9 +10,7 @@ Can the models predict whether the next five minute bar will close above or belo
 
 ## Data
 
-The analysis uses five minute open, high, low, close, and volume data for SPY and QQQ. The current data files cover 7 March 2022 to 16 October 2026.
-
-The cleaned CSV and Parquet files are not included in this repository. See `data/README.md` for information about the data files and where they should be placed.
+The analysis uses five minute open, high, low, close, and volume data for SPY and QQQ. The cleaned CSV and Parquet files are included in the `data/` folder. See `data/README.md` for details.
 
 ## Models
 
@@ -39,13 +37,13 @@ Prediction results are measured with directional accuracy, F1-score, and ROC AUC
 - `01_data_availability_and_exploration.ipynb`: initial data checks and exploration
 - `notebooks/`: feature engineering, model training, backtesting, and results review
 - `python_code/`: Python scripts used for modelling and analysis
-- `data/`: data notes and the location for local input files
+- `data/`: cleaned input data files
 - `results/`: saved model predictions and analysis results
 - `docs/`: project notes and methodology
 
 ## Running the analysis
 
-Use Python 3.13 and install the packages listed in `requirements.txt`. Place `QQQ_clean_5min.parquet` and `SPY_clean_5min.parquet` in the `data/` folder before running the analysis.
+Use Python 3.13 and install the packages listed in `requirements.txt`. The required five minute Parquet files are in `data/`.
 
 From the project folder, run these scripts in order:
 
